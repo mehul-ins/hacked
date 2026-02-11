@@ -72,6 +72,39 @@ export const HeroSection: React.FC = () => {
   const [showCursor, setShowCursor] = useState(true);
   const [isInHeroSection, setIsInHeroSection] = useState(true);
 
+  // Countdown timer state
+  const [countdown, setCountdown] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  // Countdown timer effect
+  useEffect(() => {
+    const targetDate = new Date('2026-03-13T00:00:00').getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance > 0) {
+        setCountdown({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      }
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
   const totalSections = 3;
 
   const threeRefs = useRef<ThreeRefs>({
@@ -915,6 +948,29 @@ export const HeroSection: React.FC = () => {
                 <span className="subtitle-text">Where time bends and code breaks</span>
               </p>
             </div>
+
+            {/* Countdown Timer */}
+            <div className="countdown-container">
+              <div className="countdown-box">
+                <div className="countdown-value">{String(countdown.days).padStart(2, '0')}</div>
+                <div className="countdown-label">Days</div>
+              </div>
+              <div className="countdown-separator">:</div>
+              <div className="countdown-box">
+                <div className="countdown-value">{String(countdown.hours).padStart(2, '0')}</div>
+                <div className="countdown-label">Hours</div>
+              </div>
+              <div className="countdown-separator">:</div>
+              <div className="countdown-box">
+                <div className="countdown-value">{String(countdown.minutes).padStart(2, '0')}</div>
+                <div className="countdown-label">Minutes</div>
+              </div>
+              <div className="countdown-separator">:</div>
+              <div className="countdown-box">
+                <div className="countdown-value">{String(countdown.seconds).padStart(2, '0')}</div>
+                <div className="countdown-label">Seconds</div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -937,6 +993,29 @@ export const HeroSection: React.FC = () => {
                   <span className="subtitle-text">{section.line2}</span>
                 </p>
               </div>
+
+              {/* Download Brochure Button - Only for ABOUT section */}
+              {i === 0 && (
+                <div className="hero-button-container">
+                  <button className="hero-brochure-button">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Download Event Brochure
+                  </button>
+                </div>
+              )}
             </div>
           </section>
         ))}

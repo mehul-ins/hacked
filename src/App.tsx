@@ -52,10 +52,10 @@ function App() {
             ]} />
             <HeroSection />
             <Schedule />
-            <Teams />
+            <Gallery />
             <Sponsor />
             <Prizes />
-            <Gallery />
+            <Teams />
 
             <Footer />
         </main>

@@ -26,45 +26,108 @@ export default function GalleryDemo() {
 
   const images = [
     {
-      src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1280&h=720&fit=crop',
-      alt: 'Modern architecture building',
+      src: 'https://webfiles.amrita.edu/2025/01/olabs-hackthon-img5.jpg',
+      alt: 'Devfolio',
     },
     {
-      src: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1280&h=720&fit=crop',
-      alt: 'Urban cityscape at sunset',
+      src: 'https://p.kindpng.com/picc/s/150-1508990_coding-blocks-logo-png-transparent-png.png',
+      alt: 'Coding Blocks',
     },
     {
-      src: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=800&fit=crop',
-      alt: 'Abstract geometric pattern',
+      src: 'https://findlogovector.com/wp-content/uploads/2019/11/matic-network-logo-vector.png',
+      alt: 'Matic Network',
     },
     {
-      src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1280&h=720&fit=crop',
-      alt: 'Mountain landscape',
+      src: 'https://static.startuptalky.com/2021/04/codechef-logo-startuptalky.jpg',
+      alt: 'CodeChef',
     },
     {
-      src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=800&fit=crop',
-      alt: 'Minimalist design elements',
+      src: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRZJp2HunQvFzux5bBMseqbwlKJVKn3dUosmfoonNTngMrDeFYd',
+      alt: 'HackSociety',
     },
     {
-      src: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1280&h=720&fit=crop',
-      alt: 'Ocean waves and beach',
+      src: 'https://vectortemplates.com/images/store-logo/creative-tim-coupons.png',
+      alt: 'Creative Tim',
     },
     {
-      src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1280&h=720&fit=crop',
-      alt: 'Forest trees and sunlight',
+      src: 'https://intellyx.com/wp-content/uploads/2019/12/Sentry-intellyx-BC-logo-1200x628-1.png',
+      alt: 'Sentry',
     },
-    // Generate more images for testing (30 total)
-    ...Array.from({ length: 23 }).map((_, i) => ({
-      src: `https://picsum.photos/seed/${i + 100}/800/600`, // Random placeholder images
-      alt: `Sponsor Logo ${i + 8}`,
-    })),
+    {
+      src: 'https://gisuser.com/wp-content/uploads/2019/07/Screenshot-2019-07-30-at-2.34.13-PM.png',
+      alt: 'Developer Circles',
+    },
+    {
+      src: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSiWZL0zNvvGf9oLje_lC1-bNzrWdFJ300quyJ9eGYt3G_fb8Lr',
+      alt: 'DU Beat',
+    },
+    {
+      src: 'https://conference.eurostarsoftwaretesting.com/wp-content/uploads/2023/01/JetBrains-Logo-200x200px.png',
+      alt: 'JetBrains',
+    },
+    {
+      src: 'https://www.host2boost.com/wp-content/uploads/2019/06/xyz-Domain.png',
+      alt: '.xyz Domain',
+    },
+    {
+      src: 'https://media.licdn.com/dms/image/v2/C4D12AQFa3GsFA81G_Q/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1520214148779?e=2147483647&v=beta&t=d7WupLVMPr2aAwfxPxRPqQ2W1i7jucXS5WnBtOM0-0c',
+      alt: 'i3indya Technologies',
+    },
+    {
+      src: 'https://www.znetlive.com/images/znetlivelogo-white1.jpg',
+      alt: 'ZNetLive',
+    },
+    {
+      src: 'https://avatars.githubusercontent.com/u/1582093?s=280&v=4',
+      alt: 'Women Who Code',
+    },
+    {
+      src: 'https://www.fita.in/wp-content/uploads/2021/12/0179dSC1AqaTy8DbcTJMDYE-7..v1569472044.jpg',
+      alt: 'Amazon Web Services',
+    },
+    {
+      src: 'https://static1.squarespace.com/static/584d41b3f5e2310b396cd953/60bf470bcc89035b21832288/60bf5223cc89035b2183d4bf/1623160992177/hackster-logo-white-background.png?format=1500w',
+      alt: 'Hackster',
+    },
+    {
+      src: 'https://s.yimg.com/os/en/globenewswire.com/ce022fe03a0940d9399724ed26015de2',
+      alt: 'Bugsee',
+    },
+    {
+      src: 'https://www.snowflake.com/adobe/dynamicmedia/deliver/dm-aid--1a1eb335-3218-459e-a631-28a9f5168c14/teksystems%403x.png?preferwebp=true&quality=85',
+      alt: 'TEKsystems',
+    },
+    {
+      src: 'https://images.yourstory.com/cs/images/companies/257b2753f75e-freestandblacklogo-1650359800339.jpg',
+      alt: 'FreeStand',
+    },
+    {
+      src: 'https://s3.ap-south-1.amazonaws.com/assets.ynos.in/fund-logos/FUND_001669.png',
+      alt: 'AdvantEdge',
+    },
+    {
+      src: 'https://cdn.grabon.in/gograbon/images/merchant/1620720459095/inkmonk-logo.jpg',
+      alt: 'InkMonk',
+    },
+    {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Balsamiq_horizontal_logo.svg/1280px-Balsamiq_horizontal_logo.svg.png',
+      alt: 'Balsamiq',
+    },
+    {
+      src: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRHJEXLjylDNc23hJXb1W7uB1JXVklSyFS6c7V6yFrJuugi7YMo',
+      alt: 'StockGro',
+    },
+    {
+      src: 'https://pbs.twimg.com/profile_images/1824315925346066433/g9PzcYAS.jpg',
+      alt: 'AnalytixLabs',
+    },
   ];
 
   return (
     <main className="gallery-demo">
       <div className="gallery-hero">
         <div aria-hidden="true" className="gallery-spotlight" />
-        <h1 className="gallery-title">Moments lived together as a team</h1>
+        <h1 className="gallery-title">Our Past Sponsors </h1>
       </div>
 
       {/* Zoom Parallax Section */}

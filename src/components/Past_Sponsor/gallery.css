@@ -47,8 +47,8 @@
    ============================================ */
 .zoom-parallax-image-container {
   position: relative;
-  height: 25vh;
-  width: 25vw;
+  height: 20vh;
+  width: 20vw;
 }
 
 /* ============================================
@@ -57,8 +57,10 @@
 .zoom-parallax-image {
   height: 100%;
   width: 100%;
-  object-fit: cover;
-  border-radius: 8px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -70,19 +72,19 @@
 .zoom-parallax-item[data-index="1"] .zoom-parallax-image-container {
   position: absolute !important;
   top: 5vh !important;
-  left: calc(50% + 5vw) !important;
-  height: 30vh !important;
-  width: 35vw !important;
+  left: calc(50% + 20vw) !important;
+  height: 22vh !important;
+  width: 22vw !important;
   transform: translateX(-50%);
 }
 
 /* Image 2 - Top left */
 .zoom-parallax-item[data-index="2"] .zoom-parallax-image-container {
   position: absolute !important;
-  top: 10vh !important;
-  left: calc(50% - 30vw) !important;
-  height: 45vh !important;
-  width: 20vw !important;
+  top: 8vh !important;
+  left: calc(50% - 25vw) !important;
+  height: 24vh !important;
+  width: 18vw !important;
   transform: translateX(-50%);
 }
 
@@ -90,42 +92,42 @@
 .zoom-parallax-item[data-index="3"] .zoom-parallax-image-container {
   position: absolute !important;
   top: 50% !important;
-  left: calc(50% + 30vw) !important;
-  height: 25vh !important;
-  width: 25vw !important;
+  left: calc(50% + 28vw) !important;
+  height: 20vh !important;
+  width: 20vw !important;
   transform: translate(-50%, -50%);
 }
 
 /* Image 4 - Bottom center-right */
 .zoom-parallax-item[data-index="4"] .zoom-parallax-image-container {
   position: absolute !important;
-  bottom: 10vh !important;
+  bottom: 12vh !important;
   top: auto !important;
-  left: calc(50% + 10vw) !important;
-  height: 25vh !important;
-  width: 20vw !important;
+  left: calc(50% + 15vw) !important;
+  height: 20vh !important;
+  width: 18vw !important;
   transform: translateX(-50%);
 }
 
 /* Image 5 - Bottom left */
 .zoom-parallax-item[data-index="5"] .zoom-parallax-image-container {
   position: absolute !important;
-  bottom: 10vh !important;
+  bottom: 15vh !important;
   top: auto !important;
-  left: calc(50% - 25vw) !important;
-  height: 25vh !important;
-  width: 30vw !important;
+  left: calc(50% - 22vw) !important;
+  height: 22vh !important;
+  width: 22vw !important;
   transform: translateX(-50%);
 }
 
 /* Image 6 - Bottom right corner */
 .zoom-parallax-item[data-index="6"] .zoom-parallax-image-container {
   position: absolute !important;
-  bottom: 5vh !important;
+  bottom: 8vh !important;
   top: auto !important;
-  left: calc(50% + 32vw) !important;
-  height: 15vh !important;
-  width: 15vw !important;
+  left: calc(50% + 35vw) !important;
+  height: 18vh !important;
+  width: 16vw !important;
   transform: translateX(-50%);
 }
 
@@ -160,18 +162,21 @@
   width: 120vmin;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 255, 255, 0.1),
-    transparent 50%
-  );
+  background: radial-gradient(ellipse at center,
+      rgba(255, 255, 255, 0.1),
+      transparent 50%);
   filter: blur(30px);
 }
 
 .gallery-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: #ffffff;
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: bold;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
   z-index: 1;
 }
 
@@ -186,12 +191,19 @@
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
+
   40% {
     transform: translateX(-50%) translateY(-10px);
   }
+
   60% {
     transform: translateX(-50%) translateY(-5px);
   }

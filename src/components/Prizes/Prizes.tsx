@@ -13,6 +13,7 @@ interface Prize {
   designation: string;
   icon: React.ElementType;
   color: string;
+  amount: string;
 }
 
 const prizesData: Prize[] = [
@@ -21,21 +22,24 @@ const prizesData: Prize[] = [
     position: '2nd',
     designation: 'Runner Up',
     icon: Medal,
-    color: '#b5a1e3' // Secondary color from Hero
+    color: '#b5a1e3', // Secondary color from Hero
+    amount: '₹15,000'
   },
   {
     id: 2,
     position: '1st',
     designation: 'Winner',
     icon: Trophy,
-    color: '#49e3fb' // Primary color from Hero
+    color: '#49e3fb', // Primary color from Hero
+    amount: '₹25,000'
   },
   {
     id: 3,
     position: '3rd',
     designation: 'Second Runner Up',
     icon: Award,
-    color: '#60b8c2' // Muted color from Hero
+    color: '#60b8c2', // Muted color from Hero
+    amount: '₹10,000'
   }
 ];
 
@@ -200,6 +204,7 @@ const Prizes: React.FC = () => {
                   <prize.icon strokeWidth={1.5} />
                 </div>
                 <div className="prize-position">{prize.position}</div>
+                <div className="prize-amount">{prize.amount}</div>
                 <div className="prize-designation">{prize.designation}</div>
               </div>
             </div>

@@ -129,3 +129,66 @@
         height: 350px;
     }
 }
+
+/* ===== SCHEDULE DOWNLOAD BUTTON ===== */
+.schedule-download-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(15, 21, 26, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(73, 227, 251, 0.3);
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(73, 227, 251, 0.2);
+}
+
+.schedule-download-button svg {
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(73, 227, 251, 0.5));
+}
+
+.schedule-download-button:hover {
+    transform: translateY(-3px);
+    border-color: rgba(73, 227, 251, 0.6);
+    background: rgba(15, 21, 26, 0.8);
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(73, 227, 251, 0.4);
+}
+
+.schedule-download-button:hover svg {
+    transform: translateY(3px);
+    filter: drop-shadow(0 0 15px rgba(73, 227, 251, 0.8));
+}
+
+@media (max-width: 768px) {
+    .schedule-download-button {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-download-button {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        gap: 8px;
+    }
+
+    .schedule-download-button svg {
+        width: 16px;
+        height: 16px;
+    }
+}

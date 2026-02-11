@@ -21,7 +21,7 @@ const plans: PlanProps[] = [
     isPopular: false,
   },
   {
-    tier: "Gold",
+    tier: "Title",
     price: "₹70,000",
     description: "Be the face of Hacked 4.0 as the Title Sponsor, enjoying top-tier benefits and the highest visibility.",
     color: "rgba(30, 25, 22, 0.9)", // Dark warm background
@@ -201,9 +201,6 @@ const Sponsor = () => {
     <section className="sponsor-section">
       <div className="sponsor-header">
         <h2 className="sponsor-title">Become a Sponsor</h2>
-        <p className="sponsor-subtitle">
-          Support our mission and get amazing visibility for your brand
-        </p>
       </div>
       <div className="sponsor-cards-container">
         {plans.map((plan, index) => (
