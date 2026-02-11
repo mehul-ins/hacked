@@ -1,58 +1,54 @@
-/* Navbar Container */
+/* ============ Navbar Container ============ */
 .navbar-container {
   position: fixed;
-  top: 1rem;
-  left: 1rem;
+  top: 1.25rem;
+  left: 1.25rem;
   z-index: 1000;
 }
 
-/* Main Navbar */
+/* ============ Main Navbar ============ */
 .navbar {
-  --nav-h: 48px;
-  --logo-size: 52px;
-  --pill-pad-x: 18px;
-  --pill-gap: 3px;
+  --nav-h: 50px;
+  --logo-size: 50px;
+  --pill-pad-x: 20px;
+  --pill-gap: 5px;
 
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  /* border removed in favor of svg background for custom dash spacing */
-  border-radius: 35px;
+  border-radius: 40px;
   position: relative;
 }
 
-.navbar::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 35px;
-  background: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='1' y='1' width='calc(100%25 - 2px)' height='calc(100%25 - 2px)' rx='35' ry='35' fill='none' stroke='%23fb89dc' stroke-width='2' stroke-dasharray='10%2c 18' stroke-linecap='square'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  pointer-events: none;
-  z-index: 1001;
-}
-
-/* Unified Capsule Container */
+/* ============ Capsule Container ============ */
 .navbar-capsule {
   display: flex;
   align-items: center;
-  background: #000;
+  background: transparent;
   border-radius: 9999px;
   height: var(--nav-h);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s ease;
+  box-shadow: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+  border: none;
 }
 
 .navbar-capsule.is-open {
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg,
+      rgba(8, 12, 20, 0.95) 0%,
+      rgba(12, 18, 30, 0.92) 100%);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(73, 227, 251, 0.18),
+    0 0 40px rgba(73, 227, 251, 0.06);
 }
 
-/* Logo Button */
+/* ============ Logo Button ============ */
 .navbar-logo {
-  width: 60px;
-  height: 60px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   background: transparent;
   border: none;
@@ -65,6 +61,11 @@
   z-index: 10;
   flex-shrink: 0;
   will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-logo:hover {
+  transform: scale(1.08);
 }
 
 .navbar-logo img {
@@ -76,7 +77,7 @@
   transform-origin: center center;
 }
 
-/* Navigation Items Container */
+/* ============ Navigation Items Container ============ */
 .navbar-items {
   display: flex;
   align-items: center;
@@ -85,15 +86,15 @@
   will-change: width, opacity, padding;
 }
 
-/* Pill List */
+/* ============ Pill List ============ */
 .pill-list {
   list-style: none;
   display: flex;
   align-items: stretch;
   gap: var(--pill-gap);
   margin: 0;
-  padding: 3px;
-  padding-left: 0;
+  padding: 5px;
+  padding-left: 2px;
   height: 100%;
   flex-wrap: nowrap;
 }
@@ -104,48 +105,47 @@
   will-change: transform, opacity;
 }
 
-/* Individual Pill */
 .pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   padding: 0 var(--pill-pad-x);
-  background: var(--pill-bg, #fff);
-  color: var(--pill-text, #000);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   border-radius: 9999px;
   box-sizing: border-box;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12.5px;
   line-height: 0;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   white-space: nowrap;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
 }
 
 .pill:hover {
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Hover Circle Animation */
+.pill:active {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ============ Hover Circle Animation ============ */
 .pill .hover-circle {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  border-radius: 50%;
-  background: #000;
-  z-index: 1;
-  display: block;
-  pointer-events: none;
-  will-change: transform;
+  display: none;
 }
 
-/* Label Stack */
+/* ============ Label Stack ============ */
 .pill .label-stack {
   position: relative;
   display: inline-block;
@@ -159,32 +159,38 @@
   display: inline-block;
   line-height: 1;
   will-change: transform;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .pill .pill-label-hover {
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--hover-text, #fff);
-  z-index: 3;
-  display: inline-block;
-  will-change: transform, opacity;
+  display: none;
 }
 
-/* Active State */
+/* ============ Active State ============ */
+.pill.is-active {
+  background: rgba(73, 227, 251, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(73, 227, 251, 0.3);
+}
+
+.pill.is-active .pill-label {
+  color: #49e3fb;
+}
+
 .pill.is-active::after {
+  content: '';
   position: absolute;
   bottom: 6px;
   left: 50%;
   transform: translateX(-50%);
   width: 4px;
   height: 4px;
-  background: #000;
+  background: #49e3fb;
   border-radius: 50%;
   z-index: 4;
 }
 
-/* Backdrop */
+/* ============ Backdrop ============ */
 .navbar-backdrop {
   position: fixed;
   top: 0;
@@ -195,7 +201,7 @@
   cursor: default;
 }
 
-/* Mobile Responsive */
+/* ============ Mobile Responsive ============ */
 @media (max-width: 768px) {
   .navbar-container {
     top: 0.75rem;
@@ -206,6 +212,11 @@
   .navbar {
     --nav-h: 44px;
     --logo-size: 44px;
+  }
+
+  .navbar-logo {
+    width: 48px;
+    height: 48px;
   }
 
   .navbar-capsule {
@@ -224,12 +235,13 @@
   }
 
   .pill {
-    font-size: 13px;
+    font-size: 11.5px;
     padding: 0 14px;
+    letter-spacing: 0.8px;
   }
 }
 
-/* Extra small screens */
+/* ============ Extra Small Screens ============ */
 @media (max-width: 480px) {
   .navbar-capsule {
     flex-direction: column;
@@ -239,17 +251,19 @@
   }
 
   .navbar-capsule.is-open {
-    padding-bottom: 4px;
+    padding-bottom: 6px;
   }
 
   .navbar-logo {
     align-self: flex-start;
+    width: 44px;
+    height: 44px;
   }
 
   .navbar-items {
     flex-direction: column;
     height: auto;
-    padding: 0 8px 4px 8px !important;
+    padding: 0 8px 6px 8px !important;
     width: 100% !important;
   }
 
@@ -272,14 +286,14 @@
   }
 }
 
-/* Focus styles for accessibility */
+/* ============ Accessibility ============ */
 .navbar-logo:focus-visible,
 .pill:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
+  outline: 2px solid #49e3fb;
+  outline-offset: 3px;
 }
 
-/* Smooth scrolling for the whole page */
+/* ============ Smooth Scrolling ============ */
 html {
   scroll-behavior: smooth;
 }

@@ -183,7 +183,7 @@ const Prizes: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} className="prizes-section">
+    <section ref={sectionRef} className="prizes-section" id="prizes">
       <div className="prizes-container">
         <div className="prizes-header">
           <h2 ref={headingRef} className="prizes-heading">
