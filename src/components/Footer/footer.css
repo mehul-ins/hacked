@@ -1,6 +1,6 @@
 /* ============ Footer Container ============ */
 .footer {
-  background-color: rgba(15, 15, 17, 0.95);
+  background-color: #0a0a0a;
   position: relative;
   height: fit-content;
   border-radius: 1.5rem;
@@ -15,7 +15,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(125% 125% at 50% 10%, #0F0F11cc 50%, #00ff8833 100%);
+  background: radial-gradient(125% 125% at 50% 10%, #0a0a0a 50%, rgba(73, 227, 251, 0.1) 100%);
   pointer-events: none;
   /* Allows clicks to pass through */
 }
@@ -90,11 +90,11 @@
 }
 
 .brand-icon {
-  color: #00ff88;
+  color: #49e3fb;
   font-size: 1.5rem;
   font-weight: 800;
   font-family: var(--font-heading);
-  background: linear-gradient(135deg, #00ff88, #00d4ff);
+  background: linear-gradient(135deg, #49e3fb, #60b8c2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -118,8 +118,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: rgba(0, 255, 136, 0.1);
-  border: 1px solid rgba(0, 255, 136, 0.3);
+  background: rgba(73, 227, 251, 0.1);
+  border: 1px solid rgba(73, 227, 251, 0.3);
   border-radius: 9999px;
   width: fit-content;
 }
@@ -127,14 +127,14 @@
 .badge-dot {
   width: 8px;
   height: 8px;
-  background-color: #00ff88;
+  background-color: #49e3fb;
   border-radius: 50%;
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .badge-text {
   font-size: 0.75rem;
-  color: #00ff88;
+  color: #49e3fb;
   font-weight: 500;
 }
 
@@ -143,12 +143,12 @@
   0%,
   100% {
     opacity: 1;
-    box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4);
+    box-shadow: 0 0 0 0 rgba(73, 227, 251, 0.4);
   }
 
   50% {
     opacity: 0.8;
-    box-shadow: 0 0 0 8px rgba(0, 255, 136, 0);
+    box-shadow: 0 0 0 8px rgba(73, 227, 251, 0);
   }
 }
 
@@ -195,14 +195,14 @@
 }
 
 .footer-link:hover {
-  color: #00ff88;
+  color: #49e3fb;
   transform: translateX(4px);
 }
 
 .link-icon {
   display: flex;
   align-items: center;
-  color: #00ff88;
+  color: #49e3fb;
 }
 
 .pulse-dot {
@@ -213,7 +213,7 @@
   width: 8px;
   height: 8px;
   border-radius: 9999px;
-  background-color: #00ff88;
+  background-color: #49e3fb;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -253,7 +253,7 @@
 }
 
 .icon-accent {
-  color: #00ff88;
+  color: #49e3fb;
   flex-shrink: 0;
 }
 
@@ -307,10 +307,10 @@
 }
 
 .social-link-1:hover {
-  color: #00ff88;
-  background: rgba(0, 255, 136, 0.15);
+  color: #49e3fb;
+  background: rgba(73, 227, 251, 0.15);
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.25);
+  box-shadow: 0 4px 12px rgba(73, 227, 251, 0.25);
 }
 
 .social-link-1:active {
@@ -346,7 +346,7 @@
 }
 
 .legal-link:hover {
-  color: #00ff88;
+  color: #49e3fb;
 }
 
 .legal-separator {
@@ -370,7 +370,7 @@
 
 .text-stroke-accent {
   fill: transparent;
-  stroke: #00ff88;
+  stroke: #49e3fb;
   font-family: var(--font-heading);
   font-size: 4.5rem;
   font-weight: bold;
@@ -421,14 +421,14 @@
 .footer-link:focus,
 .social-link-1:focus,
 .legal-link:focus {
-  outline: 2px solid #00ff88;
+  outline: 2px solid #49e3fb;
   outline-offset: 2px;
 }
 
 .footer-link:focus-visible,
 .social-link-1:focus-visible,
 .legal-link:focus-visible {
-  outline: 2px solid #00ff88;
+  outline: 2px solid #49e3fb;
   outline-offset: 2px;
 }
 

@@ -198,7 +198,7 @@ const Background = () => {
 
 const Sponsor = () => {
   return (
-    <section className="sponsor-section">
+    <section className="sponsor-section" id="sponsors">
       <div className="sponsor-header">
         <h2 className="sponsor-title">Become a Sponsor</h2>
       </div>

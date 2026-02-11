@@ -156,8 +156,6 @@ const Footer: React.FC = () => {
       links: [
         { label: "Schedule", href: "#schedule", icon: <Calendar size={14} /> },
         { label: "Tracks & Themes", href: "#tracks" },
-        { label: "Prizes", href: "#prizes" },
-        { label: "Judging Criteria", href: "#judging" },
       ],
     },
     {
@@ -165,12 +163,6 @@ const Footer: React.FC = () => {
       links: [
         { label: "FAQs", href: "#faq" },
         { label: "Code of Conduct", href: "#conduct" },
-        {
-          label: "Discord Server",
-          href: "https://discord.gg/hacked4",
-          pulse: true,
-        },
-        { label: "Sponsor Kit", href: "#sponsors" },
       ],
     },
     {
@@ -178,8 +170,6 @@ const Footer: React.FC = () => {
       links: [
         { label: "Register Now", href: "#register", icon: <Users size={14} /> },
         { label: "Submit Project", href: "#submit", icon: <Code size={14} /> },
-        { label: "Mentor Application", href: "#mentors" },
-        { label: "Volunteer", href: "#volunteer" },
       ],
     },
   ];
@@ -187,26 +177,18 @@ const Footer: React.FC = () => {
   const contactInfo = [
     {
       icon: <Mail size={18} className="icon-accent" />,
-      text: "hello@hacked4.dev",
-      href: "mailto:hello@hacked4.dev",
-    },
-    {
-      icon: <Phone size={18} className="icon-accent" />,
-      text: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
+      text: "hacked@bmu.edu.in",
+      href: "mailto:hacked@bmu.edu.in",
     },
     {
       icon: <MapPin size={18} className="icon-accent" />,
-      text: "Virtual & In-Person",
+      text: "BML Munjal University, Gurugram, Haryana, India",
     },
   ];
 
-  const socialLinks = [
-    { icon: <Github size={20} />, label: "GitHub", href: "https://github.com/hacked4" },
-    { icon: <Twitter size={20} />, label: "Twitter", href: "https://twitter.com/hacked4" },
+  const socialLinks = [,
     { icon: <Instagram size={20} />, label: "Instagram", href: "https://instagram.com/hacked4" },
     { icon: <Linkedin size={20} />, label: "LinkedIn", href: "https://linkedin.com/company/hacked4" },
-    { icon: <Globe size={20} />, label: "Website", href: "https://hacked4.dev" },
   ];
 
   return (
@@ -229,13 +211,9 @@ const Footer: React.FC = () => {
               <span className="brand-name">Hacked 4.0</span>
             </div>
             <p className="brand-description">
-              The ultimate 48-hour hackathon experience. Build, innovate, and 
+              The ultimate 24-hour hackathon experience. Build, innovate, and
               connect with developers from around the world.
             </p>
-            <div className="brand-badge">
-              <span className="badge-dot"></span>
-              <span className="badge-text">April 2025 • Registration Open</span>
-            </div>
           </div>
 
           {/* Footer link sections */}

@@ -36,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({
   onNavClick,
 }) => {
   const resolvedPillTextColor = pillTextColor ?? baseColor;
-  const [isNavOpen, setIsNavOpen] = useState(true); // Always open
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const [currentActive, setCurrentActive] = useState(activeHref || '');
 
   const circleRefs = useRef<Array<HTMLSpanElement | null>>([]);
@@ -101,20 +101,20 @@ const Navbar: React.FC<NavbarProps> = ({
 
   useEffect(() => {
     const capsule = capsuleRef.current;
-    // Set capsule to start open
+    // Set capsule to start closed since isNavOpen starts as false
     if (capsule) {
       gsap.set(capsule, {
-        width: 'auto',
-        opacity: 1,
-        paddingLeft: 16,
-        paddingRight: 4
+        width: 0,
+        opacity: 0,
+        paddingLeft: 0,
+        paddingRight: 0
       });
     }
 
-    // Set initial state for nav items - visible since starting open
+    // Set initial state for nav items - hidden since starting closed
     itemRefs.current.forEach((item) => {
       if (item) {
-        gsap.set(item, { opacity: 1, scale: 1, x: 0 });
+        gsap.set(item, { opacity: 0, scale: 0.8, x: -10 });
       }
     });
 
@@ -237,26 +237,12 @@ const Navbar: React.FC<NavbarProps> = ({
     }
   }, [isNavOpen, ease]);
 
-  const handleEnter = (i: number) => {
-    const tl = tlRefs.current[i];
-    if (!tl) return;
-    activeTweenRefs.current[i]?.kill();
-    activeTweenRefs.current[i] = tl.tweenTo(tl.duration(), {
-      duration: 0.3,
-      ease,
-      overwrite: 'auto'
-    });
+  const handleEnter = (_i: number) => {
+    // hover animation disabled
   };
 
-  const handleLeave = (i: number) => {
-    const tl = tlRefs.current[i];
-    if (!tl) return;
-    activeTweenRefs.current[i]?.kill();
-    activeTweenRefs.current[i] = tl.tweenTo(0, {
-      duration: 0.2,
-      ease,
-      overwrite: 'auto'
-    });
+  const handleLeave = (_i: number) => {
+    // hover animation disabled
   };
 
   const handleLogoClick = () => {
@@ -367,20 +353,10 @@ const Navbar: React.FC<NavbarProps> = ({
                     href={item.href}
                     className={`pill${currentActive === item.href ? ' is-active' : ''}`}
                     aria-label={item.ariaLabel || item.label}
-                    onMouseEnter={() => handleEnter(i)}
-                    onMouseLeave={() => handleLeave(i)}
                     onClick={(e) => handleNavItemClick(e, item.href)}
                   >
-                    <span
-                      className="hover-circle"
-                      aria-hidden="true"
-                      ref={el => { circleRefs.current[i] = el; }}
-                    />
                     <span className="label-stack">
                       <span className="pill-label">{item.label}</span>
-                      <span className="pill-label-hover" aria-hidden="true">
-                        {item.label}
-                      </span>
                     </span>
                   </a>
                 </li>

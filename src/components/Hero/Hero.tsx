@@ -899,7 +899,7 @@ export const HeroSection: React.FC = () => {
   ];
 
   return (
-    <div ref={containerRef} className={`hero-container ${!isInHeroSection ? 'hero-hidden' : ''}`}>
+    <div id="home" ref={containerRef} className={`hero-container ${!isInHeroSection ? 'hero-hidden' : ''}`}>
       <canvas ref={canvasRef} className="hero-canvas" />
 
       <div className="scanlines"></div>

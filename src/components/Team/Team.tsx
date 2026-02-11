@@ -392,7 +392,7 @@ const Teams: React.FC = () => {
     <div className="wrapper">
 
 
-      <section ref={sectionRef} className="team-section">
+      <section ref={sectionRef} className="team-section" id="teams">
         <div className="team-inner">
           {/* Only "Our Team" heading with zoom animation */}
           <h2 ref={headingRef} className="heading heading-main">

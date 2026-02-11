@@ -44,11 +44,9 @@ function App() {
             <Navbar logo={"./images/logo.png"} items={[
                 { label: "Home", href: "#home" },
                 { label: "Schedule", href: "#schedule" },
-                { label: "Teams", href: "#teams" },
                 { label: "Sponsors", href: "#sponsors" },
                 { label: "Prizes", href: "#prizes" },
-                { label: "Gallery", href: "#gallery" },
-
+                { label: "Teams", href: "#teams" },
             ]} />
             <HeroSection />
             <Schedule />
