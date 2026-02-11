@@ -2,6 +2,7 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Trophy, Medal, Award } from 'lucide-react';
 import './prizes.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -9,59 +10,32 @@ gsap.registerPlugin(ScrollTrigger);
 interface Prize {
   id: number;
   position: string;
-  amount: string;
-  title: string;
-  description: string;
-  icon: string;
+  designation: string;
+  icon: React.ElementType;
   color: string;
-  benefits: string[];
 }
 
 const prizesData: Prize[] = [
   {
     id: 1,
     position: '2nd',
-    amount: '₹50,000',
-    title: 'Runner Up',
-    description: 'Excellence in innovation and execution',
-    icon: '🥈',
-    color: '#C0C0C0',
-    benefits: [
-      'Cash Prize',
-      'Internship Opportunities',
-      'Mentorship Sessions',
-      'Swag Kit'
-    ]
+    designation: 'Runner Up',
+    icon: Medal,
+    color: '#b5a1e3' // Secondary color from Hero
   },
   {
     id: 2,
     position: '1st',
-    amount: '₹1,00,000',
-    title: 'Grand Champion',
-    description: 'The ultimate hacker who conquered all challenges',
-    icon: '🏆',
-    color: '#FFD700',
-    benefits: [
-      'Cash Prize',
-      'Fast-track Interviews',
-      'Premium Mentorship',
-      'Exclusive Swag Kit',
-      'Conference Tickets'
-    ]
+    designation: 'Winner',
+    icon: Trophy,
+    color: '#49e3fb' // Primary color from Hero
   },
   {
     id: 3,
     position: '3rd',
-    amount: '₹25,000',
-    title: 'Second Runner Up',
-    description: 'Outstanding performance and creativity',
-    icon: '🥉',
-    color: '#CD7F32',
-    benefits: [
-      'Cash Prize',
-      'Mentorship Sessions',
-      'Swag Kit'
-    ]
+    designation: 'Second Runner Up',
+    icon: Award,
+    color: '#60b8c2' // Muted color from Hero
   }
 ];
 
@@ -121,8 +95,8 @@ const Prizes: React.FC = () => {
       if (leftCardRef.current) {
         gsap.fromTo(
           leftCardRef.current,
-          { 
-            opacity: 0, 
+          {
+            opacity: 0,
             x: -150
           },
           {
@@ -144,8 +118,8 @@ const Prizes: React.FC = () => {
       if (middleCardRef.current) {
         gsap.fromTo(
           middleCardRef.current,
-          { 
-            opacity: 0, 
+          {
+            opacity: 0,
             y: 100
           },
           {
@@ -168,8 +142,8 @@ const Prizes: React.FC = () => {
       if (rightCardRef.current) {
         gsap.fromTo(
           rightCardRef.current,
-          { 
-            opacity: 0, 
+          {
+            opacity: 0,
             x: 150
           },
           {
@@ -224,40 +198,15 @@ const Prizes: React.FC = () => {
               className={getCardClass(index)}
               style={{ '--card-color': prize.color } as React.CSSProperties}
             >
-              <div className="card-header">
-                <span className="prize-icon">{prize.icon}</span>
-                <span className="prize-position">{prize.position}</span>
-              </div>
-
               <div className="card-content">
-                <h3 className="prize-title">{prize.title}</h3>
-                <div className="prize-amount">{prize.amount}</div>
-                <p className="prize-description">{prize.description}</p>
-
-                <div className="prize-benefits">
-                  <div className="benefits-label">What you get:</div>
-                  <ul className="benefits-list">
-                    {prize.benefits.map((benefit, i) => (
-                      <li key={i} className="benefit-item">
-                        <span className="benefit-check">✓</span>
-                        <span className="benefit-text">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="prize-icon">
+                  <prize.icon strokeWidth={1.5} />
                 </div>
+                <div className="prize-position">{prize.position}</div>
+                <div className="prize-designation">{prize.designation}</div>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="prizes-footer">
-          <div className="total-prize">
-            <span className="total-label">Total Prize Pool</span>
-            <span className="total-amount">₹2,00,000+</span>
-          </div>
-          <p className="prizes-note">
-            *Additional sponsor prizes and goodies to be announced
-          </p>
         </div>
       </div>
     </section>

@@ -98,17 +98,18 @@
   border-radius: 24px;
   padding: 28px;
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid;
   box-shadow:
     0 25px 50px -12px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+    0 0 0 1px rgba(255, 255, 255, 0.05);
   cursor: pointer;
 }
 
 .sponsor-card.popular {
   box-shadow:
     0 25px 60px -12px rgba(0, 0, 0, 0.8),
-    0 0 30px rgba(192, 192, 192, 0.3),
-    0 0 0 2px rgba(255, 255, 255, 0.2);
+    0 0 0 2px rgba(181, 161, 227, 0.3);
 }
 
 /* ===== CARD CONTENT ===== */
@@ -138,6 +139,7 @@
   font-weight: 600;
   backdrop-filter: blur(4px);
   letter-spacing: 0.5px;
+  border: 1px solid;
 }
 
 /* ===== PRICE STYLES ===== */
@@ -324,19 +326,19 @@
 .sponsor-card-wrapper:nth-child(1) .sponsor-card:hover {
   box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.8),
-    0 0 40px rgba(205, 127, 50, 0.4);
+    0 0 40px rgba(205, 127, 50, 0.3);
 }
 
 .sponsor-card-wrapper:nth-child(2) .sponsor-card:hover {
   box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.8),
-    0 0 50px rgba(192, 192, 192, 0.5);
+    0 0 50px rgba(73, 227, 251, 0.4);
 }
 
 .sponsor-card-wrapper:nth-child(3) .sponsor-card:hover {
   box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.8),
-    0 0 40px rgba(255, 215, 0, 0.4);
+    0 0 40px rgba(181, 161, 227, 0.4);
 }
 
 /* ===== SUBTLE FLOATING ANIMATION ===== */
@@ -359,4 +361,75 @@
 /* Pause animation on hover */
 .sponsor-card-wrapper:nth-child(2):hover {
   animation-play-state: paused;
+}
+
+/* ===== BROCHURE SECTION ===== */
+.brochure-section {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brochure-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: rgba(30, 25, 22, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid #CD7F32;
+  border-radius: 12px;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(205, 127, 50, 0.2);
+}
+
+.brochure-button svg {
+  transition: transform 0.3s ease;
+}
+
+.brochure-button:hover {
+  transform: translateY(-4px);
+  border-color: #CD7F32;
+  background: rgba(30, 25, 22, 0.8);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(205, 127, 50, 0.4);
+}
+
+.brochure-button:hover svg {
+  transform: translateY(3px);
+}
+
+@media (max-width: 850px) {
+  .brochure-section {
+    margin-top: 40px;
+  }
+
+  .brochure-button {
+    padding: 14px 28px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .brochure-button {
+    padding: 12px 24px;
+    font-size: 0.85rem;
+    gap: 10px;
+  }
+
+  .brochure-button svg {
+    width: 18px;
+    height: 18px;
+  }
 }
