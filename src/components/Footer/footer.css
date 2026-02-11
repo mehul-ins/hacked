@@ -272,14 +272,14 @@
 }
 
 /* ============ Social Links - FIXED Z-INDEX ============ */
-.social-links {
+.social-link-1s {
   display: flex;
   gap: 1rem;
   position: relative;
   z-index: 50; /* High z-index for social links */
 }
 
-.social-link {
+.social-link-1 {
   color: #9ca3af;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -294,14 +294,14 @@
   cursor: pointer;
 }
 
-.social-link:hover {
+.social-link-1:hover {
   color: #00ff88;
   background: rgba(0, 255, 136, 0.15);
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0, 255, 136, 0.25);
 }
 
-.social-link:active {
+.social-link-1:active {
   transform: translateY(-1px);
 }
 
@@ -390,7 +390,7 @@
     gap: 2rem;
   }
 
-  .social-links {
+  .social-link-1s {
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -407,14 +407,14 @@
 
 /* ============ Focus States for Accessibility ============ */
 .footer-link:focus,
-.social-link:focus,
+.social-link-1:focus,
 .legal-link:focus {
   outline: 2px solid #00ff88;
   outline-offset: 2px;
 }
 
 .footer-link:focus-visible,
-.social-link:focus-visible,
+.social-link-1:focus-visible,
 .legal-link:focus-visible {
   outline: 2px solid #00ff88;
   outline-offset: 2px;

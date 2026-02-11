@@ -29,10 +29,10 @@ const Navbar: React.FC<NavbarProps> = ({
   activeHref,
   className = '',
   ease = 'power3.out',
-  baseColor = '#fff',
-  pillColor = '#060010',
-  hoveredPillTextColor = '#060010',
-  pillTextColor,
+  baseColor = '#000',
+  pillColor = '#fff',
+  hoveredPillTextColor = '#fff',
+  pillTextColor = '#000',
   onNavClick,
 }) => {
   const resolvedPillTextColor = pillTextColor ?? baseColor;

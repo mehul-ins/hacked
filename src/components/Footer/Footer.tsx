@@ -284,7 +284,7 @@ const Footer: React.FC = () => {
         {/* Footer bottom */}
         <div className="footer-bottom">
           {/* Social icons */}
-          <div className="social-links">
+          <div className="social-link-1s">
             {socialLinks.map(({ icon, label, href }) => (
               <a
                 key={label}
@@ -292,7 +292,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="social-link"
+                className="social-link-1"
               >
                 {icon}
               </a>

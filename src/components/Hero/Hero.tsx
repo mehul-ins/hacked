@@ -11,6 +11,17 @@ import './hero.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Color palette - formal and cohesive
+const COLORS = {
+  primary: 0x49e3fb,      // Cyan - #49e3fb
+  secondary: 0xb5a1e3,    // Lavender - #b5a1e3
+  accent: 0xf789dd,       // Pink - #f789dd
+  dark: 0x0f151a,         // Dark background - #0f151a
+  muted: 0x60b8c2,        // Muted teal - #60b8c2
+  deepPurple: 0x5a3050,   // Deep purple - #5a3050
+  darkTeal: 0x18424a,     // Dark teal - #18424a
+};
+
 interface ThreeRefs {
   scene: THREE.Scene | null;
   camera: THREE.PerspectiveCamera | null;
@@ -38,7 +49,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ icon, href }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="social-link"
+    className="social-link-2"
   >
     {icon}
   </a>
@@ -199,7 +210,7 @@ export const HeroSection: React.FC = () => {
 
       // Animate social links
       if (socialLinksRef.current) {
-        const links = socialLinksRef.current.querySelectorAll('.social-link');
+        const links = socialLinksRef.current.querySelectorAll('.social-link-2');
         tl.fromTo(
           links,
           { x: -30, opacity: 0 },
@@ -269,7 +280,7 @@ export const HeroSection: React.FC = () => {
       const { current: refs } = threeRefs;
 
       refs.scene = new THREE.Scene();
-      refs.scene.fog = new THREE.FogExp2(0x000508, 0.0003);
+      refs.scene.fog = new THREE.FogExp2(0x0f151a, 0.0004);
 
       refs.camera = new THREE.PerspectiveCamera(
         75,
@@ -288,7 +299,7 @@ export const HeroSection: React.FC = () => {
       refs.renderer.setSize(window.innerWidth, window.innerHeight);
       refs.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       refs.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      refs.renderer.toneMappingExposure = 0.6;
+      refs.renderer.toneMappingExposure = 0.5;
 
       refs.composer = new EffectComposer(refs.renderer);
       const renderPass = new RenderPass(refs.scene, refs.camera);
@@ -296,8 +307,8 @@ export const HeroSection: React.FC = () => {
 
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
-        1.2,
-        0.4,
+        0.8,
+        0.5,
         0.85
       );
       refs.composer.addPass(bloomPass);
@@ -315,7 +326,7 @@ export const HeroSection: React.FC = () => {
       const { current: refs } = threeRefs;
       if (!refs.scene) return;
 
-      const starCount = 6000;
+      const starCount = 5000;
 
       for (let i = 0; i < 3; i++) {
         const geometry = new THREE.BufferGeometry();
@@ -334,20 +345,26 @@ export const HeroSection: React.FC = () => {
 
           const color = new THREE.Color();
           const colorChoice = Math.random();
-          if (colorChoice < 0.4) {
-            color.setHSL(0.35, 0.9, 0.5 + Math.random() * 0.3);
-          } else if (colorChoice < 0.7) {
-            color.setHSL(0.5, 0.8, 0.5 + Math.random() * 0.3);
-          } else if (colorChoice < 0.9) {
-            color.setHSL(0.12, 0.95, 0.5 + Math.random() * 0.3);
+          
+          // Formal color palette - mostly cyan and lavender with subtle accents
+          if (colorChoice < 0.5) {
+            // Primary cyan - #49e3fb
+            color.setHex(COLORS.primary);
+            color.multiplyScalar(0.6 + Math.random() * 0.4);
+          } else if (colorChoice < 0.8) {
+            // Lavender - #b5a1e3
+            color.setHex(COLORS.secondary);
+            color.multiplyScalar(0.5 + Math.random() * 0.5);
           } else {
-            color.setHSL(0.85, 0.8, 0.5 + Math.random() * 0.3);
+            // Muted teal - #60b8c2
+            color.setHex(COLORS.muted);
+            color.multiplyScalar(0.4 + Math.random() * 0.4);
           }
 
           colors[j * 3] = color.r;
           colors[j * 3 + 1] = color.g;
           colors[j * 3 + 2] = color.b;
-          sizes[j] = Math.random() * 2.5 + 0.5;
+          sizes[j] = Math.random() * 2 + 0.3;
         }
 
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
@@ -371,14 +388,14 @@ export const HeroSection: React.FC = () => {
               vColor = color;
               vec3 pos = position;
               
-              float angle = time * 0.03 * (1.0 - depth * 0.3);
+              float angle = time * 0.02 * (1.0 - depth * 0.3);
               mat2 rot = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
               pos.xz = rot * pos.xz;
               
-              vOpacity = 0.6 + 0.4 * sin(time * 3.0 + position.x * 0.1 + position.y * 0.1);
+              vOpacity = 0.5 + 0.3 * sin(time * 2.0 + position.x * 0.05 + position.y * 0.05);
               
               vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-              gl_PointSize = size * (300.0 / -mvPosition.z);
+              gl_PointSize = size * (280.0 / -mvPosition.z);
               gl_Position = projectionMatrix * mvPosition;
             }
           `,
@@ -390,7 +407,7 @@ export const HeroSection: React.FC = () => {
               float dist = length(gl_PointCoord - vec2(0.5));
               if (dist > 0.5) discard;
               
-              float opacity = (1.0 - smoothstep(0.0, 0.5, dist)) * vOpacity;
+              float opacity = (1.0 - smoothstep(0.0, 0.5, dist)) * vOpacity * 0.8;
               gl_FragColor = vec4(vColor, opacity);
             }
           `,
@@ -411,12 +428,13 @@ export const HeroSection: React.FC = () => {
 
       refs.wheelOfTime = new THREE.Group();
 
+      // Refined wheel layers with formal colors
       const wheelLayers = [
-        { radius: 100, tubeRadius: 3, color: 0xffd700, opacity: 0.5 },
-        { radius: 85, tubeRadius: 2, color: 0x00ff88, opacity: 0.4 },
-        { radius: 70, tubeRadius: 1.5, color: 0x00ffff, opacity: 0.3 },
-        { radius: 55, tubeRadius: 1, color: 0xffd700, opacity: 0.25 },
-        { radius: 40, tubeRadius: 0.8, color: 0xff00aa, opacity: 0.2 }
+        { radius: 100, tubeRadius: 2.5, color: COLORS.primary, opacity: 0.4 },
+        { radius: 85, tubeRadius: 1.8, color: COLORS.secondary, opacity: 0.35 },
+        { radius: 70, tubeRadius: 1.3, color: COLORS.muted, opacity: 0.3 },
+        { radius: 55, tubeRadius: 1, color: COLORS.primary, opacity: 0.25 },
+        { radius: 40, tubeRadius: 0.7, color: COLORS.secondary, opacity: 0.2 }
       ];
 
       wheelLayers.forEach((layer, index) => {
@@ -427,32 +445,35 @@ export const HeroSection: React.FC = () => {
           opacity: layer.opacity
         });
         const ring = new THREE.Mesh(geometry, material);
-        ring.userData = { rotationSpeed: 0.02 * (index % 2 === 0 ? 1 : -1) * (1 + index * 0.2) };
+        ring.userData = { rotationSpeed: 0.015 * (index % 2 === 0 ? 1 : -1) * (1 + index * 0.15) };
         refs.wheelOfTime.add(ring);
       });
 
+      // Spokes with primary color
       for (let i = 0; i < 8; i++) {
-        const spokeGeometry = new THREE.BoxGeometry(200, 2, 2);
+        const spokeGeometry = new THREE.BoxGeometry(200, 1.5, 1.5);
         const spokeMaterial = new THREE.MeshBasicMaterial({
-          color: 0xffd700,
+          color: COLORS.primary,
           transparent: true,
-          opacity: 0.35
+          opacity: 0.25
         });
         const spoke = new THREE.Mesh(spokeGeometry, spokeMaterial);
         spoke.rotation.z = (i * Math.PI) / 4;
         refs.wheelOfTime.add(spoke);
       }
 
-      const hubGeometry = new THREE.SphereGeometry(15, 32, 32);
+      // Hub with secondary color
+      const hubGeometry = new THREE.SphereGeometry(12, 32, 32);
       const hubMaterial = new THREE.MeshBasicMaterial({
-        color: 0xffd700,
+        color: COLORS.secondary,
         transparent: true,
-        opacity: 0.6
+        opacity: 0.5
       });
       const hub = new THREE.Mesh(hubGeometry, hubMaterial);
       refs.wheelOfTime.add(hub);
 
-      const runeCount = 100;
+      // Runes with primary cyan
+      const runeCount = 80;
       const runeGeometry = new THREE.BufferGeometry();
       const runePositions = new Float32Array(runeCount * 3);
 
@@ -461,16 +482,16 @@ export const HeroSection: React.FC = () => {
         const radius = 30 + Math.random() * 70;
         runePositions[i * 3] = Math.cos(angle) * radius;
         runePositions[i * 3 + 1] = Math.sin(angle) * radius;
-        runePositions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+        runePositions[i * 3 + 2] = (Math.random() - 0.5) * 8;
       }
 
       runeGeometry.setAttribute('position', new THREE.BufferAttribute(runePositions, 3));
 
       const runeMaterial = new THREE.PointsMaterial({
-        color: 0x00ffff,
-        size: 3,
+        color: COLORS.primary,
+        size: 2.5,
         transparent: true,
-        opacity: 0.7,
+        opacity: 0.6,
         blending: THREE.AdditiveBlending
       });
 
@@ -487,24 +508,24 @@ export const HeroSection: React.FC = () => {
       if (!refs.scene) return;
 
       const ringConfigs = [
-        { radius: 40, color: 0x00ff88, z: -80, rotationX: 0.4 },
-        { radius: 60, color: 0x00ffff, z: -150, rotationX: 0.6 },
-        { radius: 35, color: 0xffd700, z: -220, rotationX: 0.3 },
-        { radius: 80, color: 0xff00aa, z: -300, rotationX: 0.5 }
+        { radius: 40, color: COLORS.primary, z: -80, rotationX: 0.4 },
+        { radius: 60, color: COLORS.secondary, z: -150, rotationX: 0.6 },
+        { radius: 35, color: COLORS.muted, z: -220, rotationX: 0.3 },
+        { radius: 80, color: COLORS.primary, z: -300, rotationX: 0.5 }
       ];
 
       ringConfigs.forEach((config, i) => {
-        const geometry = new THREE.TorusGeometry(config.radius, 0.8, 16, 100);
+        const geometry = new THREE.TorusGeometry(config.radius, 0.6, 16, 100);
         const material = new THREE.MeshBasicMaterial({
           color: config.color,
           transparent: true,
-          opacity: 0.25
+          opacity: 0.2
         });
         const ring = new THREE.Mesh(geometry, material);
         ring.position.z = config.z;
         ring.rotation.x = Math.PI * config.rotationX;
         ring.userData = {
-          speed: 0.15 + i * 0.08,
+          speed: 0.12 + i * 0.06,
           direction: i % 2 === 0 ? 1 : -1,
           baseZ: config.z
         };
@@ -517,7 +538,7 @@ export const HeroSection: React.FC = () => {
       const { current: refs } = threeRefs;
       if (!refs.scene) return;
 
-      const particleCount = 3000;
+      const particleCount = 2500;
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(particleCount * 3);
       const colors = new Float32Array(particleCount * 3);
@@ -530,18 +551,27 @@ export const HeroSection: React.FC = () => {
         positions[i * 3 + 2] = (Math.random() - 0.5) * 500 - 100;
 
         const colorChoice = Math.random();
-        if (colorChoice < 0.7) {
-          colors[i * 3] = 0;
-          colors[i * 3 + 1] = 0.8 + Math.random() * 0.2;
-          colors[i * 3 + 2] = 0.4 + Math.random() * 0.2;
+        const color = new THREE.Color();
+        
+        if (colorChoice < 0.6) {
+          // Primary cyan
+          color.setHex(COLORS.primary);
+        } else if (colorChoice < 0.85) {
+          // Lavender
+          color.setHex(COLORS.secondary);
         } else {
-          colors[i * 3] = 0;
-          colors[i * 3 + 1] = 0.8 + Math.random() * 0.2;
-          colors[i * 3 + 2] = 0.8 + Math.random() * 0.2;
+          // Muted teal
+          color.setHex(COLORS.muted);
         }
+        
+        color.multiplyScalar(0.7 + Math.random() * 0.3);
 
-        speeds[i] = Math.random() * 2 + 0.5;
-        sizes[i] = Math.random() * 2 + 1;
+        colors[i * 3] = color.r;
+        colors[i * 3 + 1] = color.g;
+        colors[i * 3 + 2] = color.b;
+
+        speeds[i] = Math.random() * 1.5 + 0.3;
+        sizes[i] = Math.random() * 1.8 + 0.8;
       }
 
       geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
@@ -565,12 +595,12 @@ export const HeroSection: React.FC = () => {
             vColor = color;
             vec3 pos = position;
             
-            pos.y = mod(pos.y - time * speed * 30.0, 500.0) - 250.0;
+            pos.y = mod(pos.y - time * speed * 25.0, 500.0) - 250.0;
             
             vOpacity = smoothstep(-250.0, -100.0, pos.y) * smoothstep(250.0, 100.0, pos.y);
             
             vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-            gl_PointSize = size * (250.0 / -mvPosition.z);
+            gl_PointSize = size * (230.0 / -mvPosition.z);
             gl_Position = projectionMatrix * mvPosition;
           }
         `,
@@ -582,7 +612,7 @@ export const HeroSection: React.FC = () => {
             float dist = length(gl_PointCoord - vec2(0.5));
             if (dist > 0.5) discard;
             
-            float alpha = (1.0 - dist * 2.0) * vOpacity * 0.7;
+            float alpha = (1.0 - dist * 2.0) * vOpacity * 0.6;
             gl_FragColor = vec4(vColor, alpha);
           }
         `,
@@ -607,15 +637,15 @@ export const HeroSection: React.FC = () => {
         const radius = 120;
         const x = Math.cos(t) * radius;
         const y = Math.sin(t) * radius;
-        const z = Math.sin(t * 3) * 20;
+        const z = Math.sin(t * 3) * 15;
         curve.points.push(new THREE.Vector3(x, y, z));
       }
 
       const geometry = new THREE.BufferGeometry().setFromPoints(curve.getPoints(200));
       const material = new THREE.LineBasicMaterial({
-        color: 0xffd700,
+        color: COLORS.secondary,
         transparent: true,
-        opacity: 0.4
+        opacity: 0.3
       });
 
       refs.serpent = new THREE.Line(geometry, material);
@@ -637,7 +667,7 @@ export const HeroSection: React.FC = () => {
       });
 
       if (refs.wheelOfTime) {
-        refs.wheelOfTime.rotation.z = time * 0.03;
+        refs.wheelOfTime.rotation.z = time * 0.025;
 
         refs.wheelOfTime.children.forEach((child) => {
           if (child.userData.rotationSpeed) {
@@ -645,13 +675,13 @@ export const HeroSection: React.FC = () => {
           }
         });
 
-        const pulse = 1 + Math.sin(time * 1.5) * 0.03;
+        const pulse = 1 + Math.sin(time * 1.2) * 0.02;
         refs.wheelOfTime.scale.set(pulse, pulse, pulse);
       }
 
       refs.timeRings.forEach((ring) => {
         ring.rotation.z = time * ring.userData.speed * ring.userData.direction;
-        ring.rotation.y = Math.sin(time * 0.3 + ring.userData.baseZ * 0.01) * 0.15;
+        ring.rotation.y = Math.sin(time * 0.25 + ring.userData.baseZ * 0.01) * 0.12;
       });
 
       if (refs.codeParticles) {
@@ -659,8 +689,8 @@ export const HeroSection: React.FC = () => {
       }
 
       if (refs.serpent) {
-        refs.serpent.rotation.z = time * 0.05;
-        refs.serpent.rotation.y = Math.sin(time * 0.2) * 0.1;
+        refs.serpent.rotation.z = time * 0.04;
+        refs.serpent.rotation.y = Math.sin(time * 0.15) * 0.08;
       }
 
       if (refs.camera && refs.targetCameraX !== undefined) {
@@ -673,8 +703,8 @@ export const HeroSection: React.FC = () => {
         smoothCameraPos.current.z +=
           (refs.targetCameraZ! - smoothCameraPos.current.z) * smoothingFactor;
 
-        const floatX = Math.sin(time * 0.15) * 3;
-        const floatY = Math.cos(time * 0.1) * 2;
+        const floatX = Math.sin(time * 0.12) * 2;
+        const floatY = Math.cos(time * 0.08) * 1.5;
 
         refs.camera.position.x = smoothCameraPos.current.x + floatX;
         refs.camera.position.y = smoothCameraPos.current.y + floatY;
@@ -845,7 +875,7 @@ export const HeroSection: React.FC = () => {
       {/* Social Links - Only visible in hero section */}
       <div
         ref={socialLinksRef}
-        className={`social-links-container ${!isInHeroSection ? 'hidden' : ''}`}
+        className={`social-link-2s-container ${!isInHeroSection ? 'hidden' : ''}`}
       >
         <SocialLink
           icon={<Linkedin size={32} strokeWidth={1.5} />}
