@@ -1,15 +1,17 @@
 // src/App.tsx
 import { SpiralDemo } from "@/components/ui/spiral-demo";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { HeroSection } from "@/components/Hero/Hero";
-import Teams from "@/components/Team/Team";
-import Gallery from "@/components/Past_Sponsor/GalleryDemo";
-import Footer from "./components/Footer/Footer";
-import Sponsor from "./components/Sponsor/Sposnor";
-import Prizes from "./components/Prizes/Prizes";
 import Navbar from "./components/Navbar/Navbar";
-import Schedule from "./components/Schedule/Schedule";
 import UnstopButton from "./components/ui/UnstopButton";
+
+// Lazy load below-fold components — these load on demand as user scrolls
+const Schedule = lazy(() => import("./components/Schedule/Schedule"));
+const Gallery = lazy(() => import("@/components/Past_Sponsor/GalleryDemo"));
+const Sponsor = lazy(() => import("./components/Sponsor/Sposnor"));
+const Prizes = lazy(() => import("./components/Prizes/Prizes"));
+const Teams = lazy(() => import("@/components/Team/Team"));
+const Footer = lazy(() => import("./components/Footer/Footer"));
 
 function App() {
     const [showIntro, setShowIntro] = useState(true);
@@ -49,13 +51,14 @@ function App() {
                 { label: "Teams", href: "#teams" },
             ]} />
             <HeroSection />
-            <Schedule />
-            <Gallery />
-            <Sponsor />
-            <Prizes />
-            <Teams />
-
-            <Footer />
+            <Suspense fallback={null}>
+                <Schedule />
+                <Gallery />
+                <Sponsor />
+                <Prizes />
+                <Teams />
+                <Footer />
+            </Suspense>
         </main>
     );
 }
