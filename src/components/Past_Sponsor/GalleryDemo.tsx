@@ -126,7 +126,6 @@ export default function GalleryDemo() {
   return (
     <main className="gallery-demo">
       <div className="gallery-hero">
-        <div aria-hidden="true" className="gallery-spotlight" />
         <h1 className="gallery-title">Our Past Sponsors </h1>
       </div>
 

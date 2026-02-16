@@ -3,41 +3,85 @@
     top: 1.5rem;
     right: 2rem;
     z-index: 9999;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 10px 24px;
+    width: auto;
+    max-width: max-content;
 
-    /* Formal Glassmorphism Style */
-    background: rgba(15, 21, 26, 0.6);
-    /* Dark semi-transparent */
-    border: 1px solid rgba(73, 227, 251, 0.3);
-    /* Subtle cyan border */
-    backdrop-filter: blur(12px);
+    /* Enhanced Glassmorphism Style */
+    background: linear-gradient(135deg,
+            rgba(73, 227, 251, 0.08) 0%,
+            rgba(15, 21, 26, 0.7) 50%,
+            rgba(181, 161, 227, 0.06) 100%);
+    border: 1px solid rgba(73, 227, 251, 0.4);
+    /* Inner glow for depth */
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(73, 227, 251, 0.15);
+
+    /* Strong backdrop blur for glass effect */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+
     border-radius: 4px;
-    /* Sharper corners for formal look, or small radius */
+    overflow: hidden;
+    isolation: isolate;
 
     /* Typography */
     color: #49e3fb;
     font-family: var(--font-heading);
-    /* Use site heading font if available, else inherit */
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     text-decoration: none;
+    text-shadow: 0 2px 10px rgba(73, 227, 251, 0.3);
+    white-space: nowrap;
 
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glass reflection effect */
+.unstop-floating-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.unstop-floating-btn:hover::before {
+    left: 100%;
 }
 
 .unstop-floating-btn:hover {
-    background: rgba(73, 227, 251, 0.1);
-    border-color: #49e3fb;
-    box-shadow: 0 0 15px rgba(73, 227, 251, 0.3);
-    transform: translateY(-2px);
+    background: linear-gradient(135deg,
+            rgba(73, 227, 251, 0.18) 0%,
+            rgba(15, 21, 26, 0.85) 50%,
+            rgba(181, 161, 227, 0.12) 100%);
+    border-color: rgba(73, 227, 251, 0.8);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+        0 12px 48px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(73, 227, 251, 0.4),
+        0 0 80px rgba(73, 227, 251, 0.2);
+    transform: translateY(-3px);
     color: #fff;
-    text-shadow: 0 0 8px rgba(73, 227, 251, 0.6);
+    text-shadow:
+        0 0 20px rgba(73, 227, 251, 0.8),
+        0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .unstop-text {

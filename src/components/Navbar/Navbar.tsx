@@ -12,7 +12,6 @@ export interface NavbarProps {
   logo: string;
   logoAlt?: string;
   items: NavItem[];
-  activeHref?: string;
   className?: string;
   ease?: string;
   baseColor?: string;
@@ -26,7 +25,6 @@ const Navbar: React.FC<NavbarProps> = ({
   logo,
   logoAlt = 'Logo',
   items,
-  activeHref,
   className = '',
   ease = 'power3.out',
   baseColor = '#000',
@@ -37,7 +35,6 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isNavOpen, setIsNavOpen] = useState(true);
-  const [currentActive, setCurrentActive] = useState(activeHref || '');
 
   const circleRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const tlRefs = useRef<Array<gsap.core.Timeline | null>>([]);
@@ -301,7 +298,6 @@ const Navbar: React.FC<NavbarProps> = ({
   const handleNavItemClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
 
-    setCurrentActive(href);
     setIsNavOpen(false);
 
     scrollToSection(href);
@@ -345,7 +341,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   <a
                     role="menuitem"
                     href={item.href}
-                    className={`pill${currentActive === item.href ? ' is-active' : ''}`}
+                    className="pill"
                     aria-label={item.ariaLabel || item.label}
                     onClick={(e) => handleNavItemClick(e, item.href)}
                   >

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Mail, MapPin, Instagram, Linkedin, Calendar, Users, Code } from "lucide-react";
+import { Mail, MapPin, Instagram, Linkedin, Calendar, Users, Phone } from "lucide-react";
 import "./footer.css";
 
 // ============ TextHoverEffect Component ============
@@ -150,7 +150,7 @@ const Footer: React.FC = () => {
       title: "Event",
       links: [
         { label: "Schedule", href: "#schedule", icon: <Calendar size={14} /> },
-        { label: "Tracks & Themes", href: "#tracks" },
+        { label: "Tracks & Themes", href: "#theme" },
       ],
     },
     {
@@ -163,17 +163,21 @@ const Footer: React.FC = () => {
     {
       title: "Participate",
       links: [
-        { label: "Register Now", href: "#register", icon: <Users size={14} /> },
-        { label: "Submit Project", href: "#submit", icon: <Code size={14} /> },
+        { label: "Register Now", href: "https://unstop.com/hackathons/hacked-40-bml-munjal-university-bmu-gurgaon-1638479", target: "_blank", icon: <Users size={14} /> },
       ],
     },
   ];
 
   const contactInfo = [
     {
-      icon: <Mail size={18} className="icon-accent" />,
-      text: "hacked@bmu.edu.in",
-      href: "mailto:hacked@bmu.edu.in",
+      icon: <Phone size={18} className="icon-accent" />,
+      text: "Contact Mehak",
+      href: "tel:+919315567701",
+    },
+    {
+      icon: <Phone size={18} className="icon-accent" />,
+      text: "Contact Divisha",
+      href: "tel:+918287918026"
     },
     {
       icon: <MapPin size={18} className="icon-accent" />,
@@ -182,8 +186,8 @@ const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { icon: <Instagram size={20} />, label: "Instagram", href: "https://instagram.com/hacked4" },
-    { icon: <Linkedin size={20} />, label: "LinkedIn", href: "https://linkedin.com/company/hacked4" },
+    { icon: <Instagram size={20} />, label: "Instagram", href: "https://www.instagram.com/hacked_bmu?igsh=MXJkNnNqdGN2a25tcQ==" },
+    { icon: <Linkedin size={20} />, label: "LinkedIn", href: "https://www.linkedin.com/company/hacked-67thmilestone/" },
   ];
 
   return (
@@ -280,13 +284,6 @@ const Footer: React.FC = () => {
           <p className="copyright">
             &copy; {new Date().getFullYear()} Hacked 4.0 | All rights reserved.
           </p>
-
-          {/* Additional links */}
-          <div className="legal-links">
-            <a href="#privacy" className="legal-link">Privacy Policy</a>
-            <span className="legal-separator">•</span>
-            <a href="#terms" className="legal-link">Terms of Service</a>
-          </div>
         </div>
       </div>
     </footer>
