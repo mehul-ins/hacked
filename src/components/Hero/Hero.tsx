@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
-import { Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Linkedin, Instagram } from 'lucide-react';
 import './hero.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -329,9 +329,16 @@ export const HeroSection: React.FC = () => {
               vColor = color;
               vec3 pos = position;
               
+              // Rotate stars around Y axis - fix for Mac browsers
               float angle = time * 0.02 * (1.0 - depth * 0.3);
-              mat2 rot = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
-              pos.xz = rot * pos.xz;
+              float cosAngle = cos(angle);
+              float sinAngle = sin(angle);
+              
+              // Explicitly extract, rotate, and reassign x and z
+              float x = pos.x;
+              float z = pos.z;
+              pos.x = x * cosAngle - z * sinAngle;
+              pos.z = x * sinAngle + z * cosAngle;
               
               vOpacity = 0.5 + 0.3 * sin(time * 2.0 + position.x * 0.05 + position.y * 0.05);
               
@@ -821,16 +828,13 @@ export const HeroSection: React.FC = () => {
       >
         <SocialLink
           icon={<Linkedin size={32} strokeWidth={1.5} />}
-          href="https://www.linkedin.com/in/acic-bmu-foundation-719561220/"
+          href="https://www.linkedin.com/company/hacked-67thmilestone/"
         />
         <SocialLink
           icon={<Instagram size={32} strokeWidth={1.5} />}
-          href="https://www.instagram.com/propel_bmu?igsh=OHllZWFpODNxOXdz"
+          href="https://www.instagram.com/hacked_bmu?igsh=MXJkNnNqdGN2a25tcQ=="
         />
-        <SocialLink
-          icon={<Facebook size={32} strokeWidth={1.5} />}
-          href="https://www.facebook.com/profile.php?id=61584250505226"
-        />
+
       </div>
 
       <div className="corner bottom-left"><span>◥</span></div>
@@ -884,7 +888,7 @@ export const HeroSection: React.FC = () => {
         </section>
 
         {sectionData.map((section, i) => (
-          <section key={i} className="content-section">
+          <section key={i} className="content-section" id={section.title.toLowerCase()}>
             <div className="section-content">
               <h1 className="hero-title visible">{section.title}</h1>
               <div className="title-underline">

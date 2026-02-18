@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Mail, MapPin, Instagram, Linkedin, Calendar, Users, Code } from "lucide-react";
+import { Mail, MapPin, Instagram, Linkedin, Calendar, Users, Phone } from "lucide-react";
 import "./footer.css";
 
 // ============ TextHoverEffect Component ============
@@ -187,6 +187,58 @@ const socialLinks = [
 
 // ============ Main Footer Component ============
 const Footer: React.FC = () => {
+  type FooterLink = {
+    label: string;
+    href: string;
+    icon?: React.ReactNode;
+    target?: string;
+    pulse?: boolean;
+  };
+
+  const footerLinks: { title: string; links: FooterLink[] }[] = [
+    {
+      title: "Event",
+      links: [
+        { label: "Schedule", href: "#schedule", icon: <Calendar size={14} /> },
+        { label: "Tracks & Themes", href: "#theme" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "FAQs", href: "#faq" },
+        { label: "Code of Conduct", href: "/pdf/Code%20of%20Conduct%20Hacked%204.0.pdf", target: "_blank" },
+      ],
+    },
+    {
+      title: "Participate",
+      links: [
+        { label: "Register Now", href: "https://unstop.com/hackathons/hacked-40-bml-munjal-university-bmu-gurgaon-1638479", target: "_blank", icon: <Users size={14} /> },
+      ],
+    },
+  ];
+
+  const contactInfo = [
+    {
+      icon: <Phone size={18} className="icon-accent" />,
+      text: "Contact Mehak",
+      href: "tel:+919315567701",
+    },
+    {
+      icon: <Phone size={18} className="icon-accent" />,
+      text: "Contact Divisha",
+      href: "tel:+918287918026"
+    },
+    {
+      icon: <MapPin size={18} className="icon-accent" />,
+      text: "BML Munjal University, Gurugram, Haryana, India",
+    },
+  ];
+
+  const socialLinks = [
+    { icon: <Instagram size={20} />, label: "Instagram", href: "https://www.instagram.com/hacked_bmu?igsh=MXJkNnNqdGN2a25tcQ==" },
+    { icon: <Linkedin size={20} />, label: "LinkedIn", href: "https://www.linkedin.com/company/hacked-67thmilestone/" },
+  ];
 
   return (
     <footer className="footer">
@@ -282,13 +334,6 @@ const Footer: React.FC = () => {
           <p className="copyright">
             &copy; {new Date().getFullYear()} Hacked 4.0 | All rights reserved.
           </p>
-
-          {/* Additional links */}
-          <div className="legal-links">
-            <a href="#privacy" className="legal-link">Privacy Policy</a>
-            <span className="legal-separator">•</span>
-            <a href="#terms" className="legal-link">Terms of Service</a>
-          </div>
         </div>
       </div>
     </footer>

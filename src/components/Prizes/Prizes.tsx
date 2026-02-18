@@ -22,7 +22,7 @@ const prizesData: Prize[] = [
     position: '2nd',
     designation: 'Runner Up',
     icon: Medal,
-    color: '#b5a1e3', // Secondary color from Hero
+    color: '#49e3fb', // Secondary color from Hero
     amount: '₹15,000'
   },
   {
@@ -38,7 +38,7 @@ const prizesData: Prize[] = [
     position: '3rd',
     designation: 'Second Runner Up',
     icon: Award,
-    color: '#60b8c2', // Muted color from Hero
+    color: '#49e3fb', // Muted color from Hero
     amount: '₹10,000'
   }
 ];

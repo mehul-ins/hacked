@@ -98,8 +98,8 @@ export function ZoomParallax({ images }: ZoomParallaxProps) {
       >
         {images.map(({ src, alt }, index) => {
           // Generate transforms dynamically based on index to create depth variation
-          const scaleBase = 0.8; // Start slightly smaller
-          const scaleTarget = 1; // Scale to normal
+          const scaleBase = 1; // Start at normal size (static)
+          const scaleTarget = 1; // Stay normal briefly
 
           // Vary the final scale to create depth (some move faster/closer than others)
           // For 30+ images, we want a wider range of depths
