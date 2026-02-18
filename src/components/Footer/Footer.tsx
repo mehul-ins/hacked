@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Mail, MapPin, Instagram, Linkedin, Calendar, Users, Phone } from "lucide-react";
+import { MapPin, Instagram, Linkedin, Calendar, Users, Phone } from "lucide-react";
 import "./footer.css";
 
 // ============ TextHoverEffect Component ============
@@ -134,6 +134,8 @@ const TextHoverEffect: React.FC<TextHoverEffectProps> = ({
 const FooterBackgroundGradient: React.FC = () => {
   return <div className="footer-bg-gradient" />;
 };
+
+
 
 // ============ Main Footer Component ============
 const Footer: React.FC = () => {

@@ -3,6 +3,11 @@
 /* ============================================
    MAIN CONTAINER
    ============================================ */
+.zoom-parallax-outer {
+  position: relative;
+  width: 100%;
+}
+
 .zoom-parallax-container {
   position: relative;
   height: 300vh;

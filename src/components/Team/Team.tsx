@@ -37,7 +37,7 @@ const teamsData: Team[] = [
         id: 1,
         name: 'Mehak',
         designation: 'Lead Organizer',
-        image: 'https://media.licdn.com/dms/image/v2/D4D03AQE8bmHjHTlzpg/profile-displayphoto-scale_400_400/B4DZhxn.EvGkAo-/0/1754252963478?e=1772668800&v=beta&t=g2PsOnz274khen8xfhVc1j07vIPft-66BURNp6abn9M',
+        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mehak&backgroundColor=b6e3f4',
         socials: {
           linkedin: 'https://www.linkedin.com/in/mehak-bhardwaj',
         },
@@ -46,7 +46,7 @@ const teamsData: Team[] = [
         id: 2,
         name: 'Suvansh',
         designation: 'Lead Organizer',
-        image: 'https://media.licdn.com/dms/image/v2/D4E03AQH6imQf_FwgLg/profile-displayphoto-shrink_400_400/B4EZQtY6v0HEAk-/0/1735928296012?e=1772668800&v=beta&t=5THGQT64gtP5rEQzVQhN9e_pxRTu3ShfelmC8kGmhlE',
+        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Suvansh&backgroundColor=c0aede',
         socials: {
           linkedin: 'https://www.linkedin.com/in/suvansh-sehgal',
         },
@@ -55,7 +55,7 @@ const teamsData: Team[] = [
         id: 3,
         name: 'Divisha Goel',
         designation: 'Lead Organizer',
-        image: 'https://media.licdn.com/dms/image/v2/D5603AQG9LW71bRFVXw/profile-displayphoto-scale_400_400/B56Ztwxg0EK8Ak-/0/1767123589112?e=1772668800&v=beta&t=MKiiCM_0w0SoaT8F5gJ7Jj6Tb8YDG0RevxT5bvCXosg',
+        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Divisha&backgroundColor=ffdfbf',
         socials: {
           linkedin: 'https://www.linkedin.com/in/divisha-goel-b00197320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
         },
@@ -64,7 +64,7 @@ const teamsData: Team[] = [
         id: 4,
         name: 'Tanya',
         designation: 'Lead Organizer',
-        image: 'https://media.licdn.com/dms/image/v2/D4E03AQE2xKO71FoJfA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710251118504?e=1772668800&v=beta&t=TNgSzi9nDVDpeFmBR9kV7LOvynlGdYgn1VoZYvLwXwE',
+        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Tanya&backgroundColor=ffd5dc',
         socials: {
           linkedin: 'https://www.linkedin.com/in/tanya0610?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
         },
