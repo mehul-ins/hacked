@@ -70,7 +70,7 @@ export default function GalleryDemo() {
       alt: '.xyz Domain',
     },
     {
-      src: 'https://media.licdn.com/dms/image/v2/C4D12AQFa3GsFA81G_Q/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1520214148779?e=2147483647&v=beta&t=d7WupLVMPr2aAwfxPxRPqQ2W1i7jucXS5WnBtOM0-0c',
+      src: 'https://i3indya.com/wp-content/themes/i3indya/images/logo.png',
       alt: 'i3indya Technologies',
     },
     {

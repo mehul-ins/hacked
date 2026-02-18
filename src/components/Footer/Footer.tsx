@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Mail, MapPin, Instagram, Linkedin, Calendar, Users, Phone } from "lucide-react";
+import { MapPin, Instagram, Linkedin, Calendar, Users, Phone } from "lucide-react";
 import "./footer.css";
 
 // ============ TextHoverEffect Component ============
@@ -135,55 +135,7 @@ const FooterBackgroundGradient: React.FC = () => {
   return <div className="footer-bg-gradient" />;
 };
 
-// ============ Static Data ============
-interface FooterLink {
-  label: string;
-  href: string;
-  icon?: React.ReactNode;
-  target?: string;
-  pulse?: boolean;
-}
 
-const footerLinks: { title: string; links: FooterLink[] }[] = [
-  {
-    title: "Event",
-    links: [
-      { label: "Schedule", href: "#schedule", icon: <Calendar size={14} /> },
-      { label: "Tracks & Themes", href: "#tracks" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "FAQs", href: "#faq" },
-      { label: "Code of Conduct", href: "/pdf/Code%20of%20Conduct%20Hacked%204.0.pdf", target: "_blank" },
-    ],
-  },
-  {
-    title: "Participate",
-    links: [
-      { label: "Register Now", href: "#register", icon: <Users size={14} /> },
-      { label: "Submit Project", href: "#submit", icon: <Code size={14} /> },
-    ],
-  },
-];
-
-const contactInfo = [
-  {
-    icon: <Mail size={18} className="icon-accent" />,
-    text: "hacked@bmu.edu.in",
-    href: "mailto:hacked@bmu.edu.in",
-  },
-  {
-    icon: <MapPin size={18} className="icon-accent" />,
-    text: "BML Munjal University, Gurugram, Haryana, India",
-  },
-];
-
-const socialLinks = [
-  { icon: <Instagram size={20} />, label: "Instagram", href: "https://instagram.com/hacked4" },
-  { icon: <Linkedin size={20} />, label: "LinkedIn", href: "https://linkedin.com/company/hacked4" },
-];
 
 // ============ Main Footer Component ============
 const Footer: React.FC = () => {
