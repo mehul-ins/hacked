@@ -1,180 +1,32 @@
 /* gallery.css */
 
 /* ============================================
-   MAIN CONTAINER
+   SECTION WRAPPER
    ============================================ */
-.zoom-parallax-outer {
-  position: relative;
-  width: 100%;
-}
-
-.zoom-parallax-container {
-  position: relative;
-  height: 300vh;
-  width: 100%;
-}
-
-/* ============================================
-   PINNED WRAPPER - Fixed to screen
-   ============================================ */
-.zoom-parallax-pinned {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  background-color: #0a0a0a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: opacity 0.1s ease-out;
-}
-
-/* ============================================
-   MOTION ITEM WRAPPER
-   ============================================ */
-.zoom-parallax-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  will-change: transform, opacity;
-}
-
-/* ============================================
-   IMAGE CONTAINER - Default (center image)
-   ============================================ */
-.zoom-parallax-image-container {
-  position: relative;
-  height: 12vh;
-  width: 12vw;
-}
-
-/* ============================================
-   IMAGE STYLING
-   ============================================ */
-.zoom-parallax-image {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* ============================================
-   POSITION OVERRIDES FOR EACH IMAGE
-   ============================================ */
-
-/* Image 1 - Top right */
-.zoom-parallax-item[data-index="1"] .zoom-parallax-image-container {
-  position: absolute !important;
-  top: 5vh !important;
-  left: calc(50% + 20vw) !important;
-  height: 14vh !important;
-  width: 14vw !important;
-  transform: translateX(-50%);
-}
-
-/* Image 2 - Top left */
-.zoom-parallax-item[data-index="2"] .zoom-parallax-image-container {
-  position: absolute !important;
-  top: 8vh !important;
-  left: calc(50% - 25vw) !important;
-  height: 15vh !important;
-  width: 11vw !important;
-  transform: translateX(-50%);
-}
-
-/* Image 3 - Right middle */
-.zoom-parallax-item[data-index="3"] .zoom-parallax-image-container {
-  position: absolute !important;
-  top: 50% !important;
-  left: calc(50% + 28vw) !important;
-  height: 12vh !important;
-  width: 12vw !important;
-  transform: translate(-50%, -50%);
-}
-
-/* Image 4 - Bottom center-right */
-.zoom-parallax-item[data-index="4"] .zoom-parallax-image-container {
-  position: absolute !important;
-  bottom: 12vh !important;
-  top: auto !important;
-  left: calc(50% + 15vw) !important;
-  height: 12vh !important;
-  width: 11vw !important;
-  transform: translateX(-50%);
-}
-
-/* Image 5 - Bottom left */
-.zoom-parallax-item[data-index="5"] .zoom-parallax-image-container {
-  position: absolute !important;
-  bottom: 15vh !important;
-  top: auto !important;
-  left: calc(50% - 22vw) !important;
-  height: 14vh !important;
-  width: 14vw !important;
-  transform: translateX(-50%);
-}
-
-/* Image 6 - Bottom right corner */
-.zoom-parallax-item[data-index="6"] .zoom-parallax-image-container {
-  position: absolute !important;
-  bottom: 8vh !important;
-  top: auto !important;
-  left: calc(50% + 35vw) !important;
-  height: 11vh !important;
-  width: 10vw !important;
-  transform: translateX(-50%);
-}
-
-/* ============================================
-   DEMO PAGE STYLES
-   ============================================ */
-
 .gallery-demo {
   width: 100%;
   background-color: #0a0a0a;
   color: #ffffff;
+  padding: 4rem 0 5rem;
+  overflow: hidden;
 }
 
-.gallery-hero {
-  position: relative;
+/* ============================================
+   INNER WRAPPER (fade-in motion target)
+   ============================================ */
+.gallery-marquee-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: 5vh;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: #0a0a0a;
-  z-index: 5;
+  gap: 2.5rem;
+  width: 100%;
 }
 
-.gallery-spotlight {
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 120vmin;
-  width: 120vmin;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center,
-      rgba(255, 255, 255, 0.1),
-      transparent 50%);
-  filter: blur(30px);
-}
-
+/* ============================================
+   TITLE
+   ============================================ */
 .gallery-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-family: var(--font-heading);
   font-weight: 800;
   color: #ffffff;
@@ -182,118 +34,90 @@
   letter-spacing: -0.02em;
   text-transform: uppercase;
   margin: 0;
-  z-index: 1;
-}
-
-.gallery-subtitle {
-  position: absolute;
-  bottom: 10vh;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1rem;
-  opacity: 0.6;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-
-  40% {
-    transform: translateX(-50%) translateY(-10px);
-  }
-
-  60% {
-    transform: translateX(-50%) translateY(-5px);
-  }
-}
-
-.gallery-spacer {
-  position: relative;
-  height: 100vh;
-  background-color: #0a0a0a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
-}
-
-.gallery-spacer h2 {
-  font-size: 2rem;
-  opacity: 0.8;
 }
 
 /* ============================================
-   RESPONSIVE STYLES
+   MARQUEE ROW
+   ============================================ */
+.gallery-marquee-row {
+  width: 100%;
+  padding: 0.4rem 0;
+}
+
+/* ============================================
+   LOGO CARD
+   ============================================ */
+.gallery-logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 80px;
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 0 1rem;
+  padding: 0.6rem 1rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  overflow: hidden;
+}
+
+.gallery-logo-card:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   LOGO IMAGE
+   ============================================ */
+.gallery-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ============================================
+   RESPONSIVE
    ============================================ */
 
-/* Tablet and medium screens - Show only first 10 logos */
-@media (max-width: 1024px) {
-  .zoom-parallax-item[data-index]:nth-child(n+11) {
-    display: none !important;
+/* Mobile */
+@media (max-width: 480px) {
+  .gallery-demo {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .gallery-marquee-wrapper {
+    gap: 1.5rem;
+  }
+
+  .gallery-logo-card {
+    width: 90px;
+    height: 48px;
+    margin: 0 0.5rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
   }
 }
 
-/* Mobile screens - Show only first 10 logos */
-@media (max-width: 768px) {
-  .zoom-parallax-item[data-index]:nth-child(n+11) {
-    display: none !important;
+/* Large mobile / small tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+  .gallery-demo {
+    padding: 3rem 0 4rem;
   }
 
-  .zoom-parallax-image-container {
-    height: 20vh !important;
-    width: 40vw !important;
+  .gallery-logo-card {
+    width: 110px;
+    height: 56px;
+    margin: 0 0.6rem;
   }
+}
 
-  .gallery-title {
-    font-size: 1.5rem;
-    padding: 0 1rem;
-  }
-
-  .zoom-parallax-item[data-index="1"] .zoom-parallax-image-container {
-    top: 8vh !important;
-    left: calc(50% + 15vw) !important;
-    height: 20vh !important;
-    width: 45vw !important;
-  }
-
-  .zoom-parallax-item[data-index="2"] .zoom-parallax-image-container {
-    top: 12vh !important;
-    left: calc(50% - 25vw) !important;
-    height: 30vh !important;
-    width: 30vw !important;
-  }
-
-  .zoom-parallax-item[data-index="3"] .zoom-parallax-image-container {
-    left: calc(50% + 20vw) !important;
-    height: 18vh !important;
-    width: 35vw !important;
-  }
-
-  .zoom-parallax-item[data-index="4"] .zoom-parallax-image-container {
-    bottom: 15vh !important;
-    left: calc(50% + 15vw) !important;
-    height: 18vh !important;
-    width: 30vw !important;
-  }
-
-  .zoom-parallax-item[data-index="5"] .zoom-parallax-image-container {
-    bottom: 15vh !important;
-    left: calc(50% - 20vw) !important;
-    height: 18vh !important;
-    width: 38vw !important;
-  }
-
-  .zoom-parallax-item[data-index="6"] .zoom-parallax-image-container {
-    bottom: 8vh !important;
-    left: calc(50% + 25vw) !important;
-    height: 12vh !important;
-    width: 20vw !important;
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .gallery-logo-card {
+    width: 130px;
+    height: 65px;
   }
 }

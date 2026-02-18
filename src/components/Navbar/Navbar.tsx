@@ -330,7 +330,7 @@ const Navbar: React.FC<NavbarProps> = ({
           </button>
 
           {/* Navigation Items */}
-          <div className="navbar-items" ref={capsuleRef}>
+          <div className="navbar-items" ref={capsuleRef} style={{ pointerEvents: isNavOpen ? 'auto' : 'none' }}>
             <ul className="pill-list" role="menubar" ref={navItemsRef}>
               {items.map((item, i) => (
                 <li
@@ -362,6 +362,7 @@ const Navbar: React.FC<NavbarProps> = ({
           className="navbar-backdrop"
           onClick={() => setIsNavOpen(false)}
           aria-hidden="true"
+          style={{ pointerEvents: 'auto' }}
         />
       )}
     </div>

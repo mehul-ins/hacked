@@ -37,7 +37,7 @@ const teamsData: Team[] = [
         id: 1,
         name: 'Mehak',
         designation: 'Lead Organizer',
-        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Mehak&backgroundColor=b6e3f4',
+        image: 'https://media.licdn.com/dms/image/v2/D4D03AQE8bmHjHTlzpg/profile-displayphoto-scale_400_400/B4DZhxn.EvGkAo-/0/1754252963478?e=1772668800&v=beta&t=g2PsOnz274khen8xfhVc1j07vIPft-66BURNp6abn9M',
         socials: {
           linkedin: 'https://www.linkedin.com/in/mehak-bhardwaj',
         },
@@ -46,7 +46,7 @@ const teamsData: Team[] = [
         id: 2,
         name: 'Suvansh',
         designation: 'Lead Organizer',
-        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Suvansh&backgroundColor=c0aede',
+        image: 'https://media.licdn.com/dms/image/v2/D4E03AQH6imQf_FwgLg/profile-displayphoto-shrink_400_400/B4EZQtY6v0HEAk-/0/1735928296012?e=1772668800&v=beta&t=5THGQT64gtP5rEQzVQhN9e_pxRTu3ShfelmC8kGmhlE',
         socials: {
           linkedin: 'https://www.linkedin.com/in/suvansh-sehgal',
         },
@@ -55,7 +55,7 @@ const teamsData: Team[] = [
         id: 3,
         name: 'Divisha Goel',
         designation: 'Lead Organizer',
-        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Divisha&backgroundColor=ffdfbf',
+        image: 'https://media.licdn.com/dms/image/v2/D5603AQG9LW71bRFVXw/profile-displayphoto-scale_400_400/B56Ztwxg0EK8Ak-/0/1767123589112?e=1772668800&v=beta&t=MKiiCM_0w0SoaT8F5gJ7Jj6Tb8YDG0RevxT5bvCXosg',
         socials: {
           linkedin: 'https://www.linkedin.com/in/divisha-goel-b00197320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
         },
@@ -64,7 +64,7 @@ const teamsData: Team[] = [
         id: 4,
         name: 'Tanya',
         designation: 'Lead Organizer',
-        image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Tanya&backgroundColor=ffd5dc',
+        image: 'https://media.licdn.com/dms/image/v2/D4E03AQE2xKO71FoJfA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710251118504?e=1772668800&v=beta&t=TNgSzi9nDVDpeFmBR9kV7LOvynlGdYgn1VoZYvLwXwE',
         socials: {
           linkedin: 'https://www.linkedin.com/in/tanya0610?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
         },
@@ -100,6 +100,15 @@ const teamsData: Team[] = [
         image: 'https://media.licdn.com/dms/image/v2/D4D03AQFMDbB7KStRIw/profile-displayphoto-shrink_400_400/B4DZY.4sq2G8Ag-/0/1744811773651?e=1772668800&v=beta&t=d_Tu6mQ6r9t8OkBabDPZ90XX4heZTcLwjOQBhw7dytk',
         socials: {
           linkedin: 'https://www.linkedin.com/in/harshul-saini-701057322',
+        },
+      },
+      {
+        id: 19,
+        name: 'Vanshika Singh',
+        designation: 'Entry Management Lead',
+        image: 'https://media.licdn.com/dms/image/v2/D5603AQGjshm4iuZunA/profile-displayphoto-scale_400_400/B56ZxN0qPhIIAg-/0/1770832177720?e=1772668800&v=beta&t=DRB2hdyBId0uDD2LxP_zMUygIEZB5SyAGcWvTrZDWkc',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/vanshika-singh-159b36316/',
         },
       },
     ],
@@ -197,13 +206,12 @@ const teamsData: Team[] = [
         socials: {
           linkedin: 'https://www.linkedin.com/in/harshpratapsingh333?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
         },
-
       },
     ],
   },
   {
-    id: 'Judges & PR Lead',
-    name: 'Judges & PR Lead',
+    id: 'Judges & PR',
+    name: 'Judges & PR',
     members: [
       {
         id: 16,
@@ -212,6 +220,69 @@ const teamsData: Team[] = [
         image: 'https://media.licdn.com/dms/image/v2/D4E03AQFSXq5fc3Uc_w/profile-displayphoto-shrink_400_400/B4EZSHIyIgGwAo-/0/1737434015679?e=1772668800&v=beta&t=dRyOUyMdqKins0OZpO7-KoI80jLH9QJ-cz25SJgkDMc',
         socials: {
           linkedin: 'https://www.linkedin.com/in/manasvi-bansal-4679a1339',
+        },
+      },
+      {
+        id: 22,
+        name: 'Ashwika Sharma',
+        designation: 'Judges & PR Lead',
+        image: 'https://media.licdn.com/dms/image/v2/D5603AQE2oAzbTZUAaw/profile-displayphoto-scale_400_400/B56Zxwf5C3IIAg-/0/1771413935777?e=1773273600&v=beta&t=4RnM5wQGBXPVLnYc0FxSpR3mBe_87aVPLPSX837JwiI',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/ashwika-sharma?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+        },
+      },
+    ],
+  },
+  {
+    id: 'coverage',
+    name: 'Coverage',
+    members: [
+      {
+        id: 18,
+        name: 'Rishika Bhati',
+        designation: 'Coverage Lead',
+        image: 'https://media.licdn.com/dms/image/v2/D4D03AQE0xYH-TMBugQ/profile-displayphoto-crop_800_800/B4DZqQncsuIgAI-/0/1763362853040?e=1772668800&v=beta&t=u_u9djv8jnnA7_4Wo54AOCU5tU21DYreGFnxWJI-i4o',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/rishika-bhati-39958a25b/',
+        },
+      },
+    ],
+  },
+  {
+    id: 'social-media',
+    name: 'Social Media',
+    members: [
+      {
+        id: 20,
+        name: 'Isha Arjaria',
+        designation: 'Social Media Lead',
+        image: 'https://media.licdn.com/dms/image/v2/D5603AQEfMnfGVp7oNA/profile-displayphoto-scale_400_400/B56ZxNuXvUJQAo-/0/1770830558591?e=1772668800&v=beta&t=sDZc3aV7kg2ZYLZyEmcCaaBokqz3BuOj0HjjxzQi_D0',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/isha-arjaria-251773312/',
+        },
+      },
+      {
+        id: 21,
+        name: 'Sneha Gupta',
+        designation: 'Social Media Lead',
+        image: 'https://media.licdn.com/dms/image/v2/D5603AQHip9MknH3EiQ/profile-displayphoto-scale_400_400/B56Zu7UuQGHQAg-/0/1768374335849?e=1773273600&v=beta&t=GeXjyAHh8bxiwIyIz7fZU-Iq5qIX5qaC1af5E-JZQug',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/sneha-gupta-515b143a5?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
+        },
+      },
+    ],
+  },
+  {
+    id: 'content',
+    name: 'Content',
+    members: [
+      {
+        id: 23,
+        name: 'Jatin Kumar Yadav',
+        designation: 'Content Lead',
+        image: 'https://media.licdn.com/dms/image/v2/D4D03AQHCB_TqykKhlQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729784939117?e=1773273600&v=beta&t=MCavgRpHhGGeqv1z2KVnmpfMM8UpuSxLsS-9lJ8LOl0',
+        socials: {
+          linkedin: 'https://www.linkedin.com/in/jatin-kumar-yadav-3b6327327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
         },
       },
     ],

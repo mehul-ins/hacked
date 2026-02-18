@@ -16,6 +16,7 @@
     position: absolute;
     top: 5rem;
     left: 4rem;
+    right: 2rem;
     z-index: 10;
 }
 
@@ -28,6 +29,7 @@
     letter-spacing: -0.02em;
     line-height: 1;
     margin: 0;
+    padding-top: 20px;
 }
 
 .schedule-container {
@@ -186,8 +188,9 @@
         0 4px 16px rgba(0, 0, 0, 0.4),
         0 0 20px rgba(73, 227, 251, 0.2);
     /* Prevent the button from stretching on smaller screens */
-    max-width: calc(100% - 6rem);
-    white-space: nowrap;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
 }
 
 .schedule-download-button svg {
@@ -210,21 +213,37 @@
 }
 
 @media (max-width: 768px) {
+    .schedule-header {
+        left: 2rem;
+        right: 2rem;
+    }
+
     .schedule-download-button {
         padding: 10px 20px;
         font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
+    .schedule-header {
+        left: 1rem;
+        right: 1rem;
+        top: 3rem;
+    }
+
     .schedule-download-button {
         padding: 8px 16px;
         font-size: 0.8rem;
         gap: 8px;
+        width: 100%;
+        justify-content: center;
     }
 
     .schedule-download-button svg {
         width: 16px;
         height: 16px;
+        flex-shrink: 0;
     }
 }
